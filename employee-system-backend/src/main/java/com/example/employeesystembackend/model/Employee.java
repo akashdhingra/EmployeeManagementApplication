@@ -4,7 +4,7 @@ import lombok.Data;
 
 // Model is an structure that will interact with the UI.
 @Data
-public class EmployeeModel {
+public class Employee {
   private Long id;
   private String firstName;
   private String lastName;
