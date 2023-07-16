@@ -1,10 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from'react-router-dom'
+import EmployeeService from '../service/EmployeeService';
 
 const EmployeeList = () => {
+
+    const navigate = useNavigate();
+
+    const [loading, setLoading] = useState(true);
+    const [employees, setEmployees] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true);
+            try {
+                const response = await EmployeeService.getEmployees();
+                setEmployees(response.data);
+            } catch (error) {
+                console.log(error);
+                
+            }
+            setLoading(false);
+        };
+        fetchData();
+    }, []);
+    
   return (
     <div className='container mx-auto my-8'>
     <div className='h-12'>
-        <button className='rounded bg-slate-600 text-white px-6 py-2 font-semibold'>AddEmployee</button>
+        <button 
+        onClick={() => navigate('/addEmployee')}
+        className='rounded bg-slate-600 text-white px-6 py-2 font-semibold'>
+            AddEmployee</button>
     </div>
     <div className='flex shadow border-b'>
         <table className='min-w-full'>
