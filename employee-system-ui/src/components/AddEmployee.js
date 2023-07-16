@@ -1,4 +1,4 @@
-import e, { response } from 'express';
+
 import React, { useState } from 'react'
 import EmployeeService from '../service/EmployeeService';
 
@@ -8,7 +8,7 @@ const AddEmployee = () => {
         id: "",
         firstName: "",
         lastName: "",
-        emailId: "",
+        emailID: "",
 
     });
     
@@ -57,7 +57,7 @@ const AddEmployee = () => {
                 <label className='block text-gray-600 text-sm font-normal'>
                     Email
                 </label>
-                <input type = "email" name='emailId' value = {employee.emailId} 
+                <input type = "email" name='emailID' value = {employee.emailID} 
                 onChange={(e) => handleChange(e)}
                 className='h-10 w-96 border mt-2 px-2 py-2'></input>
             </div>
